@@ -19,6 +19,14 @@ feature 'gerenciar professor' do
 
   end
 
+  scenario 'excluir professor' do #, :javascript => true  do
+
+    professor = Factory.create(:professor)
+    visit professors_path
+    click_link 'Excluir'
+
+  end
+
  
 
   def preencher_e_verificar_professor
