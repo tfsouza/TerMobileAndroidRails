@@ -10,15 +10,6 @@ feature 'gerenciar professor' do
     page.should have_content 'Professor cadastrado com sucesso'
   end
 
-  scenario 'alterar professor' do #, :javascript => true  do
-
-    professor = FactoryGirl.create(:professor)
-    visit edit_professor_path(professor)
-    preencher_e_verificar_professor
-    page.should have_content 'Professor alterado com sucesso'
-
-  end
-
  
 
   def preencher_e_verificar_professor
