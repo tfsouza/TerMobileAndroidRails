@@ -1,4 +1,6 @@
 Termobra::Application.routes.draw do
+  resources :professors
+
   resources :cursos
 
   # The priority is based upon order of creation:
