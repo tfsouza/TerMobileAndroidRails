@@ -1,0 +1,25 @@
+<h1>Listing alunoturmaanoletivos</h1>
+
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>Turmaanoletivo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @alunoturmaanoletivos.each do |alunoturmaanoletivo| %>
+  <tr>
+    <td><%= alunoturmaanoletivo.aluno %></td>
+    <td><%= alunoturmaanoletivo.turmaanoletivo %></td>
+    <td><%= link_to 'Show', alunoturmaanoletivo %></td>
+    <td><%= link_to 'Edit', edit_alunoturmaanoletivo_path(alunoturmaanoletivo) %></td>
+    <td><%= link_to 'Destroy', alunoturmaanoletivo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Alunoturmaanoletivo', new_alunoturmaanoletivo_path %>

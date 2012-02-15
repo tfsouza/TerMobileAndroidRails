@@ -1,0 +1,6 @@
+= semantic_form_for [@aluno_turma_ano_letivo] do |form|
+   
+  = form.input :aluno, :member_label => :nome, :label => 'Aluno' 
+  = form.input :turmaanoletivo, :member_label => Proc.new { |c| c.turma.sigla }, :label => 'Turma Ano Letivo/Periodo'
+  = form.submit 'Salvar'
+

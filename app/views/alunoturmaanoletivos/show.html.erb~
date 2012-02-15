@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Aluno:</b>
+  <%= @alunoturmaanoletivo.aluno.nome %>
+</p>
+
+<p>
+  <b>Turmaanoletivo:</b>
+  <%= @alunoturmaanoletivo.turmaanoletivo.turma.sigla %>
+</p>
+
+
+<%= link_to 'Edit', edit_alunoturmaanoletivo_path(@alunoturmaanoletivo) %> |
+<%= link_to 'Back', alunoturmaanoletivos_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215011825) do
+ActiveRecord::Schema.define(:version => 20120215124141) do
 
   create_table "alunos", :force => true do |t|
     t.string   "matricula"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(:version => 20120215011825) do
   end
 
   add_index "alunos", ["turma_id"], :name => "index_alunos_on_turma_id"
+
+  create_table "alunoturmaanoletivos", :force => true do |t|
+    t.integer  "aluno_id"
+    t.integer  "turmaanoletivo_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "alunoturmaanoletivos", ["aluno_id"], :name => "index_alunoturmaanoletivos_on_aluno_id"
+  add_index "alunoturmaanoletivos", ["turmaanoletivo_id"], :name => "index_alunoturmaanoletivos_on_turmaanoletivo_id"
 
   create_table "anoletivos", :force => true do |t|
     t.string   "ano"

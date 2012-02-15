@@ -1,0 +1,64 @@
+# coding: utf-8
+
+require 'spec_helper'
+
+feature 'gerenciar aluno turma ano letivo' do
+  
+  scenario 'incluir aluno turma ano letivo'do # , :javascript => true  do
+    aluno = FactoryGirl.create(:aluno, :nome => 'Luiz')
+    turma = FactoryGirl.create(:turma, :sigla => 'Info')
+    ano_letivo =FactoryGirl.create(:ano_letivo, :ano => '2011')
+    turmaanoletivo = FactoryGirl.create(:turmaanoletivo,:turma => turma, :ano_letivo => ano_letivo)
+  
+    visit new_aluno_turma_ano_letivo_path
+    preencher_e_verificar_aluno_turma_ano_letivo
+    page.should have_content 'Aluno turma ano letivo cadastrado com sucesso'
+
+  end
+
+  scenario 'alterar aluno turma ano letivo' do# , :javascript => true  do
+
+    aluno = FactoryGirl.create(:aluno, :nome => 'Luiz')
+    turma = FactoryGirl.create(:turma, :sigla => 'Info')
+    ano_letivo =FactoryGirl.create(:ano_letivo, :ano => '2011')
+    turmaanoletivo = FactoryGirl.create(:turmaanoletivo,:turma => turma, :ano_letivo => ano_letivo)
+    aluno_turma_ano_letivo = FactoryGirl.create(:aluno_turma_ano_letivo,:aluno => aluno, :turmaanoletivo => turmaanoletivo)
+
+    visit edit_aluno_turma_ano_letivo_path(aluno_turma_ano_letivo)
+
+    preencher_e_verificar_aluno_turma_ano_letivo
+    page.should have_content 'Aluno turma ano letivo alterado com sucesso'
+
+  end
+
+  scenario 'excluir aluno turma ano letivo' do #, :javascript => true  do
+
+    aluno = FactoryGirl.create(:aluno, :nome => 'Luiz')
+    turma = FactoryGirl.create(:turma, :sigla => 'Info')
+    ano_letivo =FactoryGirl.create(:ano_letivo, :ano => '2011')
+    turmaanoletivo = FactoryGirl.create(:turmaanoletivo,:turma => turma, :ano_letivo => ano_letivo)
+    aluno_turma_ano_letivo = FactoryGirl.create(:aluno_turma_ano_letivo,:aluno => aluno, :turmaanoletivo => turmaanoletivo)
+
+    visit aluno_turma_ano_letivos_path
+
+    click_link 'Excluir'
+
+   
+    
+  end
+
+  def preencher_e_verificar_aluno_turma_ano_letivo
+
+    
+    select 'Luiz', :on => 'Aluno'
+    select 'Info', :on =>  'Turma Ano Letivo/Periodo'
+    
+    click_button 'Salvar'
+    page.should have_content 'Aluno: Luiz'
+    page.should have_content 'Turma Ano Letivo/Periodo: Info'
+    
+    
+  end
+      
+end
+
