@@ -1,4 +1,6 @@
 Termobra::Application.routes.draw do
+  resources :alunos
+
   resources :anoletivos
 
   resources :turmas
