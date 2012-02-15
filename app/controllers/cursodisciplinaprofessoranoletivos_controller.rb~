@@ -1,0 +1,2 @@
+class CursodisciplinaprofessoranoletivosController < InheritedResources::Base
+end

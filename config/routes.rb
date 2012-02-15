@@ -1,4 +1,6 @@
 Termobra::Application.routes.draw do
+  resources :cursodisciplinaprofessoranoletivos
+
   resources :cursodisciplinaprofessors
 
   resources :cursodisciplinas

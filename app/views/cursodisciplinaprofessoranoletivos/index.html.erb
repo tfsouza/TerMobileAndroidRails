@@ -1,0 +1,27 @@
+<h1>Listing cursodisciplinaprofessoranoletivos</h1>
+
+<table>
+  <tr>
+    <th>Professor</th>
+    <th>Cursodisciplina</th>
+    <th>Anoletivo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cursodisciplinaprofessoranoletivos.each do |cursodisciplinaprofessoranoletivo| %>
+  <tr>
+    <td><%= cursodisciplinaprofessoranoletivo.professor.nome %></td>
+    <td><%= cursodisciplinaprofessoranoletivo.cursodisciplina.disciplina.sigla %></td>
+    <td><%= cursodisciplinaprofessoranoletivo.anoletivo.ano %></td>
+    <td><%= link_to 'Show', cursodisciplinaprofessoranoletivo %></td>
+    <td><%= link_to 'Edit', edit_cursodisciplinaprofessoranoletivo_path(cursodisciplinaprofessoranoletivo) %></td>
+    <td><%= link_to 'Excluir', cursodisciplinaprofessoranoletivo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cursodisciplinaprofessoranoletivo', new_cursodisciplinaprofessoranoletivo_path %>
