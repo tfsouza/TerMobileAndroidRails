@@ -1,0 +1,8 @@
+= semantic_form_for [@turma] do |form|
+
+ 
+  = form.input :sigla, :label => 'Sigla' 
+  = form.input :descricao, :label => 'Descricao'
+  = form.input :curso, :member_label => :nome, :label => 'Curso' 
+  = form.submit 'Salvar'
+
