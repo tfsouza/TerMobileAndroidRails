@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Curso:</b>
+  <%= @cursodisciplina.curso.nome %>
+</p>
+
+<p>
+  <b>Disciplina:</b>
+  <%= @cursodisciplina.disciplina.sigla %>
+</p>
+
+
+<%= link_to 'Edit', edit_cursodisciplina_path(@cursodisciplina) %> |
+<%= link_to 'Back', cursodisciplinas_path %>

@@ -1,0 +1,57 @@
+# coding: utf-8
+
+require 'spec_helper'
+
+feature 'gerenciar curso_disciplina' do
+
+  scenario 'incluir curso_disciplina' do #, :javascript => true  do
+
+    curso = FactoryGirl.create(:curso, :nome => 'Info')
+    disciplina =FactoryGirl.create(:disciplina, :sigla => 'D01')
+    
+    visit new_cursodisciplina_path
+    preencher_e_verificar_curso_disciplina
+    page.should have_content 'CursoDisciplina cadastrado com sucesso'
+
+  end
+
+  scenario 'alterar curso_disciplina' do# , :javascript => true  do
+    
+    curso = FactoryGirl.create(:curso, :nome => 'Info')
+    disciplina =FactoryGirl.create(:disciplina, :sigla => 'D01')
+    
+    curso_disciplina = FactoryGirl.create(:cursodisciplina,:curso => curso, :disciplina => disciplina)
+    visit edit_cursodisciplina_path(curso_disciplina)
+    preencher_e_verificar_curso_disciplina
+    page.should have_content 'CursoDisciplina alterado com sucesso'
+
+  end
+
+  scenario 'excluir curso_disciplina' do #, :javascript => true  do
+
+    curso = FactoryGirl.create(:curso, :nome => 'Info')
+    disciplina =FactoryGirl.create(:disciplina, :sigla => 'D01')
+    
+    curso_disciplina = FactoryGirl.create(:cursodisciplina,:curso => curso, :disciplina => disciplina)
+    visit cursodisciplinas_path
+    click_link 'Excluir'
+
+  
+    
+  end
+
+  def preencher_e_verificar_curso_disciplina
+
+   
+    select 'Info', :on => 'Curso'
+    select 'D01', :on =>  'Disciplina'
+    
+    click_button 'Salvar'
+    page.should have_content 'Curso: Info'
+    page.should have_content 'Disciplina: D01'
+    
+    
+  end
+      
+end
+
