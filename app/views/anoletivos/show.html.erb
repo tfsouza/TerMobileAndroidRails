@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ano:</b>
+  <%= @anoletivo.ano %>
+</p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @anoletivo.period %>
+</p>
+
+
+<%= link_to 'Edit', edit_anoletivo_path(@anoletivo) %> |
+<%= link_to 'Back', anoletivos_path %>
