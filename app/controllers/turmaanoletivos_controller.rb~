@@ -1,0 +1,2 @@
+class TurmaanoletivosController < InheritedResources::Base
+end

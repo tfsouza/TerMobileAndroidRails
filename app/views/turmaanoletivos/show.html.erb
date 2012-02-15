@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Turma:</b>
+  <%= @turmaanoletivo.turma.sigla %>
+</p>
+
+<p>
+  <b>Ano Letivo/Periodo:</b>
+  <%= @turmaanoletivo.anoletivo.ano %>
+</p>
+
+
+<%= link_to 'Edit', edit_turmaanoletivo_path(@turmaanoletivo) %> |
+<%= link_to 'Back', turmaanoletivos_path %>

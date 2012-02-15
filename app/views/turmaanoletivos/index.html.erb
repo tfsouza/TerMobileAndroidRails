@@ -1,0 +1,25 @@
+<h1>Listing turmaanoletivos</h1>
+
+<table>
+  <tr>
+    <th>Turma</th>
+    <th>Anoletivo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @turmaanoletivos.each do |turmaanoletivo| %>
+  <tr>
+    <td><%= turmaanoletivo.turma.sigla %></td>
+    <td><%= turmaanoletivo.anoletivo.ano %></td>
+    <td><%= link_to 'Show', turmaanoletivo %></td>
+    <td><%= link_to 'Edit', edit_turmaanoletivo_path(turmaanoletivo) %></td>
+    <td><%= link_to 'Excluir', turmaanoletivo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Turmaanoletivo', new_turmaanoletivo_path %>
