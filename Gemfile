@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 
-gem 'pg', '~> 0.12.2'
+#gem 'pg'
 
 gem 'inherited_resources', '~> 1.3.0'
 gem 'haml', '~> 3.1.4'
@@ -14,6 +14,7 @@ gem 'brazilian-rails', '~>3.0.8'
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'libv8'
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
 end
